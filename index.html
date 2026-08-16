@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mettnau Ferienwohnung — Radolfzell am Bodensee</title>
+<meta name="description" content="Helle Ferienwohnung auf der Halbinsel Mettnau in Radolfzell am Bodensee. Ruhige Lage, eigener Garten, wenige Gehminuten zum See.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBF9F5;
+    --paper-dim: #F1ECE3;
+    --ink: #22303C;
+    --ink-soft: #55636D;
+    --lake: #3E7CA6;
+    --lake-deep: #2C5A7C;
+    --lake-pale: #DCEAF2;
+    --wood: #B98457;
+    --leaf: #6B8F5D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--lake-deep);
+    font-weight: 600;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* -- Nav ---------------------------------------------------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 249, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(34, 48, 60, 0.08);
+  }
+  nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand img { width: 38px; height: 38px; object-fit: contain; filter: drop-shadow(0 1px 2px rgba(34,48,60,0.18)); }
+  .brand span {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; letter-spacing: 0.02em;
+  }
+  .navlinks { display: flex; gap: 28px; font-size: 0.85rem; }
+  .navlinks a { text-decoration: none; color: var(--ink-soft); transition: color 0.2s; }
+  .navlinks a:hover { color: var(--lake); }
+  .navlinks a:focus-visible, .btn:focus-visible { outline: 2px solid var(--lake); outline-offset: 3px; }
+  @media (max-width: 640px) { .navlinks { display: none; } }
+
+  /* -- Hero --------------------------------------------------- */
+  .hero { position: relative; height: 92vh; min-height: 580px; overflow: hidden; }
+  .hero img { position: absolute; inset: 0; filter: saturate(1.05); }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20,32,42,0.35) 0%, rgba(20,32,42,0.08) 32%, rgba(20,32,42,0.15) 55%, rgba(20,32,42,0.68) 100%);
+  }
+  .hero-content {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 28px 76px;
+    max-width: 1080px; margin: 0 auto;
+    color: #fff;
+  }
+  .hero-medallion {
+    width: 168px; height: 168px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0 14px 36px rgba(15, 25, 33, 0.38), 0 0 0 1px rgba(255,255,255,0.5) inset;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+    animation: medallion-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .hero-medallion img { position: static; width: 132px; height: 132px; object-fit: contain; filter: none; }
+  @keyframes medallion-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.85); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .hero-content .eyebrow { color: var(--lake-pale); }
+  .hero-content h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    color: #fff;
+    margin: 10px 0 14px;
+  }
+  .hero-content p { max-width: 480px; font-size: 1.05rem; color: rgba(255,255,255,0.9); margin-bottom: 28px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hero-credit {
+    position: absolute; right: 16px; bottom: 12px; z-index: 3;
+    font-size: 0.68rem; color: rgba(255,255,255,0.65);
+    text-decoration: none;
+  }
+  .hero-credit:hover { color: #fff; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-medallion { animation: none; }
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 13px 26px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.2s ease;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--lake); color: #fff; border: 1px solid var(--lake); }
+  .btn-primary:hover { background: var(--lake-deep); }
+  .btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+
+  /* -- Wave divider --------------------------------------------- */
+  .wave { display: block; width: 100%; height: 64px; }
+  .wave-paper-to-lake { fill: var(--lake-pale); }
+  .wave-lake-to-paper { fill: var(--paper); }
+
+  /* -- Section shell -------------------------------------------- */
+  section { padding: 96px 0; scroll-margin-top: 84px; }
+  section .eyebrow { display: block; margin-bottom: 10px; }
+  .section-head { max-width: 620px; margin-bottom: 48px; }
+  .section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+
+  /* -- Intro / facts ---------------------------------------------- */
+  .intro-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+  .intro-grid p { color: var(--ink-soft); font-size: 1.02rem; margin-bottom: 16px; }
+  @media (max-width: 800px) { .intro-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(34,48,60,0.1); border: 1px solid rgba(34,48,60,0.1); }
+  .fact { background: var(--paper); padding: 20px 22px; }
+  .fact .num { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--lake-deep); display: block; }
+  .fact .label { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.02em; margin-top: 2px; }
+
+  /* -- Gallery ------------------------------------------------ */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 130px;
+    gap: 8px;
+  }
+  .gallery figure { overflow: hidden; border-radius: 2px; position: relative; cursor: pointer; }
+  .gallery figure img { transition: transform 0.5s ease; }
+  .gallery figure:hover img { transform: scale(1.06); }
+  .gallery figure:focus-visible { outline: 2px solid var(--lake); outline-offset: -2px; }
+  .g-1 { grid-column: span 3; grid-row: span 3; }
+  .g-2 { grid-column: span 3; grid-row: span 2; }
+  .g-3 { grid-column: span 3; grid-row: span 2; }
+  .g-4 { grid-column: span 2; grid-row: span 2; }
+  .g-5 { grid-column: span 2; grid-row: span 2; }
+  .g-6 { grid-column: span 2; grid-row: span 2; }
+  .g-7 { grid-column: span 3; grid-row: span 2; }
+  .g-8 { grid-column: span 3; grid-row: span 2; }
+  .g-9 { grid-column: span 2; grid-row: span 2; }
+  .g-10 { grid-column: span 2; grid-row: span 2; }
+  .g-11 { grid-column: span 2; grid-row: span 2; }
+  .g-cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 8px 10px 6px;
+    font-size: 0.72rem; letter-spacing: 0.03em;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(34,48,60,0.65), transparent);
+  }
+  @media (max-width: 760px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .gallery figure { grid-column: span 1 !important; grid-row: span 1 !important; }
+  }
+
+  /* -- Umgebung ------------------------------------------------ */
+  .umgebung { background: var(--lake-pale); }
+  .umgebung-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .umgebung-grid p { color: var(--ink-soft); margin-bottom: 14px; }
+  .taglist { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .bcp-hint {
+    display: flex; align-items: center; gap: 18px;
+    margin-top: 44px;
+  }
+  .bcp-hint img { width: 128px; height: auto; flex-shrink: 0; }
+  .bcp-hint a { color: var(--lake-deep); font-weight: 500; text-decoration: underline; }
+  .bcp-hint p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+  .tag {
+    font-size: 0.78rem; padding: 7px 14px;
+    background: #fff; border: 1px solid rgba(34,48,60,0.12);
+    border-radius: 999px; color: var(--ink-soft);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .tag:hover { border-color: var(--lake); color: var(--lake-deep); }
+  @media (max-width: 800px) { .umgebung-grid { grid-template-columns: 1fr; } }
+
+  /* -- Verfügbarkeit ------------------------------------------- */
+  .cal-hint { max-width: 620px; font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 32px; }
+  .cal-hint a { color: var(--lake-deep); font-weight: 500; text-decoration: underline; }
+  .cal-frame-wrap {
+    max-width: 680px; margin: 0 auto;
+    border: 1px solid rgba(34,48,60,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .cal-frame-wrap iframe { width: 100%; height: 600px; border: 0; display: block; }
+  .cal-fallback { margin-top: 18px; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+
+  /* -- Kontakt / Footer ------------------------------------------ */
+  footer { background: var(--ink); color: rgba(255,255,255,0.85); padding: 80px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-bottom: 56px; }
+  footer h2 { color: #fff; font-size: 2rem; margin-bottom: 16px; }
+  footer p { color: rgba(255,255,255,0.65); margin-bottom: 24px; max-width: 420px; }
+  .contact-email {
+    font-family: 'Fraunces', serif; font-size: 1.5rem;
+    color: var(--lake-pale); text-decoration: none;
+    border-bottom: 1px solid rgba(220,234,242,0.35);
+    padding-bottom: 4px;
+  }
+  .contact-email:hover { border-color: var(--lake-pale); }
+  .footer-facts { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  .footer-facts dt { color: rgba(255,255,255,0.4); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 16px; }
+  .footer-facts dt:first-child { margin-top: 0; }
+  .footer-facts dd { margin-top: 2px; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+    font-size: 0.78rem; color: rgba(255,255,255,0.4);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .gallery figure img, .btn { transition: none; }
+  }
+
+  /* -- Lightbox ------------------------------------------------- */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(20, 28, 34, 0.94);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.25s ease;
+  }
+  .lightbox.is-open { opacity: 1; visibility: visible; }
+  .lightbox-img-wrap {
+    max-width: min(92vw, 1100px);
+    max-height: 86vh;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .lightbox-img-wrap img {
+    max-width: 100%; max-height: 78vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: 3px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-caption {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+  }
+  .lightbox-close, .lightbox-prev, .lightbox-next {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    border-radius: 50%;
+    width: 46px; height: 46px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.22); }
+  .lightbox-close { top: 22px; right: 22px; }
+  .lightbox-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 18px; top: 50%; transform: translateY(-50%); }
+  @media (max-width: 640px) {
+    .lightbox-prev { left: 8px; width: 40px; height: 40px; }
+    .lightbox-next { right: 8px; width: 40px; height: 40px; }
+    .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <img src="photos/logo.png" alt="">
+      <span>Mettnau Ferienwohnung</span>
+    </div>
+    <div class="navlinks">
+      <a href="#wohnung">Die Wohnung</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#umgebung">Umgebung</a>
+      <a href="#verfuegbarkeit">Verfügbarkeit</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Radolfzell%20am%20Bodensee%2C%20das%20Naturschutzgebiet%20Mettnau.JPG?width=1920" alt="Naturschutzgebiet Halbinsel Mettnau bei Radolfzell am Bodensee, Blick über Schilf und Wasser">
+  <div class="hero-content">
+    <div class="hero-medallion">
+      <img src="photos/logo.png" alt="Mettnau Ferienwohnung Logo">
+    </div>
+    <span class="eyebrow">Radolfzell am Bodensee · Halbinsel Mettnau</span>
+    <h1>Ihr ruhiges&nbsp;Zuhause<br>am Bodensee</h1>
+    <p>Helle Ferienwohnung in gehobener Wohnlage, nur wenige Gehminuten vom Seeufer, der Innenstadt und dem Mettnaupark entfernt.</p>
+    <div class="hero-ctas">
+      <a href="#verfuegbarkeit" class="btn btn-primary">Verfügbarkeit prüfen</a>
+      <a href="#wohnung" class="btn btn-ghost">Zur Wohnung</a>
+    </div>
+  </div>
+  <a class="hero-credit" href="https://commons.wikimedia.org/wiki/File:Radolfzell_am_Bodensee,_das_Naturschutzgebiet_Mettnau.JPG" target="_blank" rel="noopener">Foto: Pinguin2015 / Wikimedia Commons, CC BY-SA 3.0</a>
+</header>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path class="wave-paper-to-lake" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"></path>
+</svg>
+
+<section id="wohnung" style="background: var(--lake-pale);">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <span class="eyebrow">Die Wohnung</span>
+        <h2 style="margin-bottom: 22px;">Wohnen zwischen Garten und Seeufer</h2>
+        <p>Unsere Ferienwohnung liegt auf der Halbinsel Mettnau in Radolfzell — nur wenige Gehminuten vom Bodensee, dem Strandbad, dem Mettnaupark und der Radolfzeller Innenstadt entfernt, wo gemütliche Cafés, Restaurants und Pubs zum Verweilen einladen.</p>
+        <p>Auch finden sich fußläufig Einkaufsmöglichkeiten und, als kleines Shopping-Erlebnis, das Outlet-Center Seemaxx. Die Wohnung selbst liegt in einer ruhigen, gehobenen Wohnsiedlung — mit Gartennutzung und einem reservierten PKW-Stellplatz.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span class="num">4</span><span class="label">Gäste (Doppelbett + 2 Einzelbetten)</span></div>
+        <div class="fact"><span class="num">130&nbsp;€</span><span class="label">pro Nacht, Mindestaufenthalt 5 Nächte</span></div>
+        <div class="fact"><span class="num">90&nbsp;€</span><span class="label">Reinigungsgebühr pro Aufenthalt</span></div>
+        <div class="fact"><span class="num">🐾</span><span class="label">Haustiere willkommen, 5&nbsp;€ / Nacht</span></div>
+        <div class="fact"><span class="num">15:00</span><span class="label">Check-in, elektronisches Türschloss</span></div>
+        <div class="fact"><span class="num">11:00</span><span class="label">Check-out</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="transform: scaleY(-1);">
+  <path class="wave-paper-to-lake" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"></path>
+</svg>
+
+<section id="galerie">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Galerie</span>
+      <h2>Ein Blick durch die Räume</h2>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="g-1" tabindex="0" role="button" aria-label="Foto vergrößern: Wohn- & Schlafbereich"><img src="photos/wohnbereich-1.jpg" alt="Offener Wohn- und Schlafbereich unterm Dach, viel Tageslicht"><figcaption class="g-cap">Wohn- &amp; Schlafbereich</figcaption></figure>
+      <figure class="g-2" tabindex="0" role="button" aria-label="Foto vergrößern: Küche"><img src="photos/kueche-1.jpg" alt="Helle Küchenzeile mit Essplatz"><figcaption class="g-cap">Küche</figcaption></figure>
+      <figure class="g-3" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnzimmer"><img src="photos/wohnzimmer-sofa.jpg" alt="Sofaecke im Wohnbereich"><figcaption class="g-cap">Wohnzimmer</figcaption></figure>
+      <figure class="g-4" tabindex="0" role="button" aria-label="Foto vergrößern: Schlafzimmer"><img src="photos/schlafzimmer-bett.jpg" alt="Doppelbett im Schlafzimmer"><figcaption class="g-cap">Schlafzimmer</figcaption></figure>
+      <figure class="g-5" tabindex="0" role="button" aria-label="Foto vergrößern: Bad"><img src="photos/bad-1.jpg" alt="Badezimmer mit Wanne"><figcaption class="g-cap">Bad</figcaption></figure>
+      <figure class="g-6" tabindex="0" role="button" aria-label="Foto vergrößern: Garten"><img src="photos/garten.jpg" alt="Blick von oben auf Garten und Sitzplatz"><figcaption class="g-cap">Garten</figcaption></figure>
+      <figure class="g-7" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnbereich"><img src="photos/wohnzimmer-tv.jpg" alt="Wohnbereich mit Fernseher"><figcaption class="g-cap">Wohnbereich</figcaption></figure>
+      <figure class="g-8" tabindex="0" role="button" aria-label="Foto vergrößern: Zweites Schlafzimmer"><img src="photos/schlafzimmer-1.jpg" alt="Zweites Schlafzimmer mit Einzelbetten"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+      <figure class="g-9" tabindex="0" role="button" aria-label="Foto vergrößern: Essbereich"><img src="photos/kueche-2.jpg" alt="Essbereich mit Sitzgelegenheiten"><figcaption class="g-cap">Essbereich</figcaption></figure>
+      <figure class="g-10" tabindex="0" role="button" aria-label="Foto vergrößern: Arbeitsplatz"><img src="photos/schlafzimmer-arbeitsplatz.jpg" alt="Kleiner Arbeitsplatz im Schlafzimmer"><figcaption class="g-cap">Arbeitsplatz</figcaption></figure>
+      <figure class="g-11" tabindex="0" role="button" aria-label="Foto vergrößern: Bad"><img src="photos/bad-2.jpg" alt="Waschbecken und Spiegel im Bad"><figcaption class="g-cap">Bad</figcaption></figure>
+      <figure class="g-4" tabindex="0" role="button" aria-label="Foto vergrößern: Das Haus"><img src="photos/hero-haus.jpg" alt="Außenansicht des Hauses mit der Ferienwohnung, sonniger Tag"><figcaption class="g-cap">Das Haus</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="umgebung" class="umgebung">
+  <div class="wrap">
+    <div class="umgebung-grid">
+      <div>
+        <span class="eyebrow">Umgebung</span>
+        <h2 style="margin-bottom: 20px;">Radolfzell &amp; der Bodensee</h2>
+        <p>Radolfzell ist die drittgrößte Stadt am Bodensee — überschaubar, naturnah und mit dem längsten begehbaren Uferabschnitt am ganzen See. Die historische Altstadt lädt zum Bummeln ein, das Münster „Unserer Lieben Frau" bietet vom höchsten Kirchturm am Bodensee einen weiten Blick über Stadt und See.</p>
+        <p>Direkt vor der Tür liegt die Halbinsel Mettnau mit Naturschutzgebiet, ausgedehnten Riedlandschaften und einer weitläufigen Promenade — ideal zum Spazierengehen und Radfahren. Von hier aus lassen sich auch Ausflüge zur Insel Reichenau, nach Konstanz oder Wanderungen auf dem Bodanrück gut planen.</p>
+      </div>
+      <div>
+        <p style="margin-top: 0;">Ein paar Ausgangspunkte für Ihren Aufenthalt:</p>
+        <div class="taglist">
+          <a class="tag" href="https://www.radolfzell-tourismus.de/attraktion/halbinsel-mettnau-f4dbe6fa49" target="_blank" rel="noopener">Halbinsel Mettnau</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/attraktion/strandbad-mettnau-578c8bc1b1" target="_blank" rel="noopener">Strandbad Mettnau</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/de/reisefuehrer/die-mettnau" target="_blank" rel="noopener">Mettnaupark</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/de/entdecken-erleben/sehenswertes" target="_blank" rel="noopener">Radolfzeller Altstadt</a>
+          <a class="tag" href="https://de.wikipedia.org/wiki/Radolfzeller_M%C3%BCnster" target="_blank" rel="noopener">Münster Unserer Lieben Frau</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/attraktion/stadtgarten-radolfzell-b7ad753d60" target="_blank" rel="noopener">Stadtgarten</a>
+          <a class="tag" href="https://www.seemaxx.de/" target="_blank" rel="noopener">Outlet-Center Seemaxx</a>
+          <a class="tag" href="https://www.reichenau-tourismus.de/de/insel-reichenau" target="_blank" rel="noopener">Insel Reichenau</a>
+          <a class="tag" href="https://www.konstanz-info.com" target="_blank" rel="noopener">Konstanz</a>
+          <a class="tag" href="https://de.wikipedia.org/wiki/Bodanr%C3%BCck" target="_blank" rel="noopener">Bodanrück-Wanderwege</a>
+          <a class="tag" href="https://www.bodensee.eu/de/was-erleben/aktiv/radfahren/toptouren" target="_blank" rel="noopener">Bodensee-Radweg</a>
+        </div>
+        <div class="bcp-hint">
+          <img src="photos/bodensee-card-plus.png" alt="Bodensee Card Plus Logo">
+          <p>Ihre All-inclusive-Erlebniskarte, mit der Sie sich einmalig freien Eintritt bei über 160 der besten Attraktionen in der Vierländerregion sichern – Kursschifffahrt auf dem Bodensee und Rhein inklusive!<br><a href="https://www.bodensee.eu/de/bcp" target="_blank" rel="noopener">bodensee.eu/de/bcp</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="verfuegbarkeit" class="verfuegbarkeit">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Verfügbarkeit</span>
+      <h2>Freie Termine im Überblick</h2>
+    </div>
+    <p class="cal-hint">
+      Der Kalender gibt eine Übersicht der aktuell freien und belegten Zeiträume.
+      Wir freuen uns auf Ihre Buchungsanfrage per E-Mail an:
+      <a href="mailto:petrianna703@gmail.com">petrianna703@gmail.com</a>.
+    </p>
+    <div class="cal-frame-wrap">
+      <iframe id="calendarFrame" src="https://petrifewo.github.io/fewo-verfuegbarkeit/" title="Verfügbarkeitskalender Ferienwohnung Mettnau" loading="lazy" scrolling="no"></iframe>
+    </div>
+    <p class="cal-fallback">Wird der Kalender nicht angezeigt? <a href="https://petrifewo.github.io/fewo-verfuegbarkeit/" style="color: var(--lake-deep); text-decoration: underline;">Direkt öffnen</a></p>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="eyebrow" style="color: var(--lake-pale);">Kontakt</span>
+        <h2>Fragen zur Buchung?</h2>
+        <p>Schreiben Sie uns einfach eine E-Mail — wir melden uns zeitnah mit allen weiteren Informationen und der Verfügbarkeit für Ihren Wunschzeitraum.</p>
+        <a class="contact-email" href="mailto:petrianna703@gmail.com">petrianna703@gmail.com</a>
+      </div>
+      <dl class="footer-facts">
+        <dt>Lage</dt>
+        <dd>Halbinsel Mettnau, Radolfzell am Bodensee</dd>
+        <dt>Kapazität</dt>
+        <dd>Bis zu 4 Gäste</dd>
+        <dt>Preis</dt>
+        <dd>130 € / Nacht, mind. 5 Nächte, zzgl. 90 € Reinigung</dd>
+        <dt>Haustiere</dt>
+        <dd>Willkommen, 5 € / Nacht</dd>
+        <dt>Check-in / Check-out</dt>
+        <dd>Ab 15:00 Uhr / bis 11:00 Uhr</dd>
+      </dl>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Mettnau Ferienwohnung, Radolfzell am Bodensee</span>
+      <span>Verfügbarkeit &amp; Buchungsanfrage per E-Mail</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">✕</button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Vorheriges Bild">‹</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox-next" id="lightboxNext" aria-label="Nächstes Bild">›</button>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function () {
+    var figures = Array.prototype.slice.call(document.querySelectorAll('#gallery figure'));
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightboxImg');
+    var lightboxCaption = document.getElementById('lightboxCaption');
+    var currentIndex = 0;
+
+    function openAt(index) {
+      currentIndex = (index + figures.length) % figures.length;
+      var fig = figures[currentIndex];
+      var img = fig.querySelector('img');
+      var cap = fig.querySelector('figcaption');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = cap ? cap.textContent : '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function next() { openAt(currentIndex + 1); }
+    function prev() { openAt(currentIndex - 1); }
+
+    figures.forEach(function (fig, i) {
+      fig.addEventListener('click', function () { openAt(i); });
+      fig.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openAt(i);
+        }
+      });
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', close);
+    document.getElementById('lightboxNext').addEventListener('click', next);
+    document.getElementById('lightboxPrev').addEventListener('click', prev);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+  })();
+
+  (function () {
+    var lastSetHeight = 0;
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'fewo-calendar-height' && typeof e.data.height === 'number') {
+        var target = e.data.height + 24;
+        if (Math.abs(target - lastSetHeight) < 4) return;
+        lastSetHeight = target;
+        var frame = document.getElementById('calendarFrame');
+        if (frame) frame.style.height = target + 'px';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
