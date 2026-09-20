@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mettnau Ferienwohnung — Radolfzell am Bodensee</title>
+<meta name="description" content="Helle Ferienwohnung auf der Halbinsel Mettnau in Radolfzell am Bodensee. Ruhige Lage, eigener Garten, wenige Gehminuten zum See.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "name": "Mettnau Ferienwohnung",
+  "description": "Helle Ferienwohnung auf der Halbinsel Mettnau in Radolfzell am Bodensee. Ruhige, gehobene Wohnlage mit Gartennutzung, nur wenige Gehminuten vom Seeufer, dem Strandbad, dem Mettnaupark und der Radolfzeller Innenstadt entfernt.",
+  "url": "https://petrifewo.github.io/fewo-website/",
+  "image": [
+    "https://petrifewo.github.io/fewo-website/photos/wohnzimmer-1.jpg",
+    "https://petrifewo.github.io/fewo-website/photos/schlafzimmer1-1.jpg",
+    "https://petrifewo.github.io/fewo-website/photos/schlafzimmer2-1.jpg",
+    "https://petrifewo.github.io/fewo-website/photos/kueche-2.jpg",
+    "https://petrifewo.github.io/fewo-website/photos/bad-1.jpg"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hausherrenstraße 20",
+    "addressLocality": "Radolfzell am Bodensee",
+    "postalCode": "78315",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "petsAllowed": true,
+  "numberOfRooms": 2,
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "maxValue": 4
+  },
+  "checkinTime": "15:00",
+  "checkoutTime": "11:00",
+  "priceRange": "ab 130 € / Nacht",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Garten" },
+    { "@type": "LocationFeatureSpecification", "name": "Reservierter PKW-Stellplatz" },
+    { "@type": "LocationFeatureSpecification", "name": "Elektronisches Türschloss" }
+  ]
+}
+</script>
+<style>
+  :root {
+    --paper: #FBF9F5;
+    --paper-dim: #F1ECE3;
+    --ink: #22303C;
+    --ink-soft: #55636D;
+    --lake: #3E7CA6;
+    --lake-deep: #2C5A7C;
+    --lake-pale: #DCEAF2;
+    --wood: #B98457;
+    --leaf: #6B8F5D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--lake-deep);
+    font-weight: 600;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* -- Nav ---------------------------------------------------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 249, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(34, 48, 60, 0.08);
+  }
+  nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand img { width: 38px; height: 38px; object-fit: contain; filter: drop-shadow(0 1px 2px rgba(34,48,60,0.18)); }
+  .brand span {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; letter-spacing: 0.02em;
+  }
+  .navlinks { display: flex; gap: 28px; font-size: 0.85rem; }
+  .navlinks a { text-decoration: none; color: var(--ink-soft); transition: color 0.2s; }
+  .navlinks a:hover { color: var(--lake); }
+  .navlinks a:focus-visible, .btn:focus-visible { outline: 2px solid var(--lake); outline-offset: 3px; }
+  @media (max-width: 640px) { .navlinks { display: none; } }
+
+  /* -- Hero --------------------------------------------------- */
+  .hero { position: relative; height: 92vh; min-height: 580px; overflow: hidden; }
+  .hero img { position: absolute; inset: 0; filter: saturate(1.05); }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20,32,42,0.35) 0%, rgba(20,32,42,0.08) 32%, rgba(20,32,42,0.15) 55%, rgba(20,32,42,0.68) 100%);
+  }
+  .hero-content {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    text-align: center;
+    padding: 0 28px 76px;
+    max-width: 1080px; margin: 0 auto;
+    color: #fff;
+  }
+  .hero-medallion {
+    width: 168px; height: 168px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: 0 14px 36px rgba(15, 25, 33, 0.38), 0 0 0 1px rgba(255,255,255,0.5) inset;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+    animation: medallion-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .hero-medallion img { position: static; width: 132px; height: 132px; object-fit: contain; filter: none; }
+  @keyframes medallion-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.85); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .hero-content .eyebrow { color: var(--lake-pale); }
+  .hero-address {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .hero-content h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    color: #fff;
+    margin: 10px 0 14px;
+  }
+  .hero-content p { max-width: 480px; font-size: 1.05rem; color: rgba(255,255,255,0.9); margin-bottom: 28px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hero-credit {
+    position: absolute; right: 16px; bottom: 12px; z-index: 3;
+    font-size: 0.68rem; color: rgba(255,255,255,0.65);
+    text-decoration: none;
+  }
+  .hero-credit:hover { color: #fff; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-medallion { animation: none; }
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 13px 26px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.2s ease;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--lake); color: #fff; border: 1px solid var(--lake); }
+  .btn-primary:hover { background: var(--lake-deep); }
+  .btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+
+  /* -- Wave divider --------------------------------------------- */
+  .wave { display: block; width: 100%; height: 64px; }
+  .wave-paper-to-lake { fill: var(--lake-pale); }
+  .wave-lake-to-paper { fill: var(--paper); }
+
+  /* -- Section shell -------------------------------------------- */
+  section { padding: 96px 0; scroll-margin-top: 84px; }
+  section .eyebrow { display: block; margin-bottom: 10px; }
+  .section-head { max-width: 620px; margin-bottom: 48px; }
+  .section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+
+  /* -- Intro / facts ---------------------------------------------- */
+  .intro-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; }
+  .intro-grid p { color: var(--ink-soft); font-size: 1.02rem; margin-bottom: 16px; }
+  @media (max-width: 800px) { .intro-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(34,48,60,0.1); border: 1px solid rgba(34,48,60,0.1); }
+  .fact { background: var(--paper); padding: 20px 22px; }
+  .fact .num { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--lake-deep); display: block; }
+  .fact .label { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.02em; margin-top: 2px; }
+
+  /* -- Gallery ------------------------------------------------ */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 130px;
+    grid-auto-flow: dense;
+    gap: 8px;
+  }
+  .gallery figure { overflow: hidden; border-radius: 2px; position: relative; cursor: pointer; }
+  .gallery figure img { transition: transform 0.5s ease; }
+  .gallery figure:hover img { transform: scale(1.06); }
+  .gallery figure:focus-visible { outline: 2px solid var(--lake); outline-offset: -2px; }
+  .p1 { grid-column: span 3; grid-row: span 3; }
+  .p2 { grid-column: span 3; grid-row: span 2; }
+  .p3 { grid-column: span 2; grid-row: span 2; }
+  .p4 { grid-column: span 2; grid-row: span 3; }
+  .g-cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 8px 10px 6px;
+    font-size: 0.72rem; letter-spacing: 0.03em;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(34,48,60,0.65), transparent);
+  }
+  @media (max-width: 760px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .gallery figure { grid-column: span 1 !important; grid-row: span 1 !important; }
+  }
+
+  /* -- Umgebung ------------------------------------------------ */
+  .umgebung { background: var(--lake-pale); }
+  .umgebung-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .umgebung-grid p { color: var(--ink-soft); margin-bottom: 14px; }
+  .taglist { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .bcp-row {
+    margin-top: 44px;
+    display: flex; flex-wrap: wrap; gap: 40px;
+  }
+  .bcp-hint {
+    display: flex; align-items: center; gap: 18px;
+    flex: 1 1 300px;
+  }
+  .bcp-hint img { width: 128px; height: auto; flex-shrink: 0; }
+  .bcp-hint a { color: var(--lake-deep); font-weight: 500; text-decoration: underline; }
+  .bcp-hint p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+  .tag {
+    font-size: 0.78rem; padding: 7px 14px;
+    background: #fff; border: 1px solid rgba(34,48,60,0.12);
+    border-radius: 999px; color: var(--ink-soft);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .tag:hover { border-color: var(--lake); color: var(--lake-deep); }
+  @media (max-width: 800px) { .umgebung-grid { grid-template-columns: 1fr; } }
+
+  /* -- Verfügbarkeit ------------------------------------------- */
+  .cal-hint { max-width: 620px; font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 32px; }
+  .cal-hint a { color: var(--lake-deep); font-weight: 500; text-decoration: underline; }
+  .cal-frame-wrap {
+    max-width: 680px; margin: 0 auto;
+    border: 1px solid rgba(34,48,60,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .cal-frame-wrap iframe { width: 100%; height: 600px; border: 0; display: block; }
+  .cal-fallback { margin-top: 18px; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+
+  /* -- Kontakt / Footer ------------------------------------------ */
+  footer { background: var(--ink); color: rgba(255,255,255,0.85); padding: 80px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-bottom: 56px; }
+  footer h2 { color: #fff; font-size: 2rem; margin-bottom: 16px; }
+  footer p { color: rgba(255,255,255,0.65); margin-bottom: 24px; max-width: 420px; }
+  .contact-email {
+    font-family: 'Fraunces', serif; font-size: 1.5rem;
+    color: var(--lake-pale); text-decoration: none;
+    border-bottom: 1px solid rgba(220,234,242,0.35);
+    padding-bottom: 4px;
+  }
+  .contact-email:hover { border-color: var(--lake-pale); }
+  .footer-facts { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+  .footer-facts dt { color: rgba(255,255,255,0.4); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 16px; }
+  .footer-facts dt:first-child { margin-top: 0; }
+  .footer-facts dd { margin-top: 2px; }
+  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+    font-size: 0.78rem; color: rgba(255,255,255,0.4);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .gallery figure img, .btn { transition: none; }
+  }
+
+  /* -- Lightbox ------------------------------------------------- */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(20, 28, 34, 0.94);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.25s ease;
+  }
+  .lightbox.is-open { opacity: 1; visibility: visible; }
+  .lightbox-img-wrap {
+    max-width: min(92vw, 1100px);
+    max-height: 86vh;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .lightbox-img-wrap img {
+    max-width: 100%; max-height: 78vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: 3px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-caption {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+  }
+  .lightbox-close, .lightbox-prev, .lightbox-next {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    border-radius: 50%;
+    width: 46px; height: 46px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.22); }
+  .lightbox-close { top: 22px; right: 22px; }
+  .lightbox-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 18px; top: 50%; transform: translateY(-50%); }
+  @media (max-width: 640px) {
+    .lightbox-prev { left: 8px; width: 40px; height: 40px; }
+    .lightbox-next { right: 8px; width: 40px; height: 40px; }
+    .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <img src="photos/logo.png" alt="">
+      <span>Mettnau Ferienwohnung</span>
+    </div>
+    <div class="navlinks">
+      <a href="#wohnung">Die Wohnung</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#umgebung">Umgebung</a>
+      <a href="#verfuegbarkeit">Verfügbarkeit</a>
+      <a href="#kontakt">Kontakt &amp; Impressum</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Radolfzell%20am%20Bodensee%2C%20das%20Naturschutzgebiet%20Mettnau.JPG?width=1920" alt="Naturschutzgebiet Halbinsel Mettnau bei Radolfzell am Bodensee, Blick über Schilf und Wasser">
+  <div class="hero-content">
+    <div class="hero-medallion">
+      <img src="photos/logo.png" alt="Mettnau Ferienwohnung Logo">
+    </div>
+    <span class="eyebrow">Radolfzell am Bodensee · Halbinsel Mettnau</span>
+    <span class="hero-address">Hausherrenstraße 20 · 78315 Radolfzell am Bodensee</span>
+    <h1>Ihr ruhiges&nbsp;Zuhause<br>am Bodensee</h1>
+    <p>Helle Ferienwohnung in gehobener Wohnlage, nur wenige Gehminuten vom Seeufer, der Innenstadt und dem Mettnaupark entfernt.</p>
+    <div class="hero-ctas">
+      <a href="#verfuegbarkeit" class="btn btn-primary">Verfügbarkeit prüfen</a>
+      <a href="#wohnung" class="btn btn-ghost">Zur Wohnung</a>
+    </div>
+  </div>
+  <a class="hero-credit" href="https://commons.wikimedia.org/wiki/File:Radolfzell_am_Bodensee,_das_Naturschutzgebiet_Mettnau.JPG" target="_blank" rel="noopener">Foto: Pinguin2015 / Wikimedia Commons, CC BY-SA 3.0</a>
+</header>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path class="wave-paper-to-lake" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"></path>
+</svg>
+
+<section id="wohnung" style="background: var(--lake-pale);">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <span class="eyebrow">Die Wohnung</span>
+        <h2 style="margin-bottom: 22px;">Wohnen zwischen Garten und Seeufer</h2>
+        <p>Unsere Ferienwohnung liegt auf der Halbinsel Mettnau in Radolfzell — nur wenige Gehminuten vom Bodensee, dem Strandbad, dem Mettnaupark und der Radolfzeller Innenstadt entfernt, wo gemütliche Cafés, Restaurants und Pubs zum Verweilen einladen.</p>
+        <p>Auch finden sich fußläufig Einkaufsmöglichkeiten und, als kleines Shopping-Erlebnis, das Outlet-Center Seemaxx. Die Wohnung selbst liegt in einer ruhigen, gehobenen Wohnsiedlung — mit Gartennutzung und einem reservierten PKW-Stellplatz.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span class="num">Gästeanzahl</span><span class="label">4 Gäste: <br>Doppelbett,<br>2 Einzelbetten</span></div>
+        <div class="fact"><span class="num">Preis auf Anfrage</span><span class="label">Mindestaufenthalt: <br>5 Nächte</span></div>
+        <div class="fact"><span class="num">Reinigung</span><span class="label">einmalige Reinigungsgebühr pro Aufenthalt</span></div>
+        <div class="fact"><span class="num">🐾 Haustiere</span><span class="label">willkommen,<br> auf Anfrage</span></div>
+        <div class="fact"><span class="num">15:00 Uhr</span><span class="label">Check-in,<br>elektronisches Türschloss</span></div>
+        <div class="fact"><span class="num">11:00 Uhr</span><span class="label">Check-out</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="transform: scaleY(-1);">
+  <path class="wave-paper-to-lake" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"></path>
+</svg>
+
+<section id="galerie">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Galerie</span>
+      <h2>Ein Blick durch die Räume</h2>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="p1" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnzimmer"><img src="photos/wohnzimmer-1.jpg" alt="Sofaecke im Wohnzimmer mit Fernseher"><figcaption class="g-cap">Wohnzimmer</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnzimmer"><img src="photos/wohnzimmer-2.jpg" alt="Wohnzimmer mit Blick zum Schlafzimmer"><figcaption class="g-cap">Wohnzimmer</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnzimmer am Tag"><img src="photos/wohnzimmer-3.jpg" alt="Wohnzimmer bei Tageslicht"><figcaption class="g-cap">Wohnzimmer</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnzimmer am Abend"><img src="photos/wohnzimmer-4.jpg" alt="Wohnzimmer in warmem Abendlicht"><figcaption class="g-cap">Wohnzimmer</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Sofaecke"><img src="photos/wohnzimmer-5.jpg" alt="Gemütliche Sofaecke mit Kissen"><figcaption class="g-cap">Sofaecke</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Sitzecke"><img src="photos/wohnzimmer-6.jpg" alt="Wohnbereich mit Sitzecke und Sideboard"><figcaption class="g-cap">Wohnbereich</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Wohnbereich"><img src="photos/wohnzimmer-7.jpg" alt="Wohnbereich mit bodentiefem Fenster im Dachgeschoss"><figcaption class="g-cap">Wohnbereich</figcaption></figure>
+
+      <figure class="p1" tabindex="0" role="button" aria-label="Foto vergrößern: Schlafzimmer"><img src="photos/schlafzimmer1-1.jpg" alt="Schlafzimmer mit Doppelbett und Kleiderstange"><figcaption class="g-cap">Schlafzimmer</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Schlafzimmer mit Ausblick"><img src="photos/schlafzimmer1-2.jpg" alt="Schlafzimmer mit Fensterblick"><figcaption class="g-cap">Schlafzimmer</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Schlafzimmer mit Sitzecke"><img src="photos/schlafzimmer1-3.jpg" alt="Schlafzimmer mit Sessel und Sideboard"><figcaption class="g-cap">Schlafzimmer</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Detail im Schlafzimmer"><img src="photos/schlafzimmer1-4.jpg" alt="Gemütliche Details im Schlafzimmer"><figcaption class="g-cap">Schlafzimmer</figcaption></figure>
+
+      <figure class="p1" tabindex="0" role="button" aria-label="Foto vergrößern: Zweites Schlafzimmer"><img src="photos/schlafzimmer2-1.jpg" alt="Zweites Schlafzimmer mit Doppelbett"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Maritimer Akzent"><img src="photos/schlafzimmer2-2.jpg" alt="Zweites Schlafzimmer mit maritimem Wanddekor"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Kleiderablage"><img src="photos/schlafzimmer2-3.jpg" alt="Kleiderablage im zweiten Schlafzimmer"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Doppelbett"><img src="photos/schlafzimmer2-4.jpg" alt="Doppelbett im zweiten Schlafzimmer"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Schlafzimmer mit Kleiderstange"><img src="photos/schlafzimmer2-5.jpg" alt="Zweites Schlafzimmer mit Kleiderstange"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Blick ins zweite Schlafzimmer"><img src="photos/schlafzimmer2-6.jpg" alt="Blick durch die Tür ins zweite Schlafzimmer"><figcaption class="g-cap">Zweites Schlafzimmer</figcaption></figure>
+
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Küche"><img src="photos/kueche-2.jpg" alt="Küche mit weißen Fronten und Kochfeld"><figcaption class="g-cap">Küche</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Küchenzeile"><img src="photos/kueche-1.jpg" alt="Küchenzeile mit Kühlschrank und Backofen"><figcaption class="g-cap">Küche</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Essbereich in der Küche"><img src="photos/essbereich.jpg" alt="Essbereich in der Küche mit Hängelampe"><figcaption class="g-cap">Essbereich</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Kaffeemaschine"><img src="photos/kaffeemaschine.jpg" alt="Nespresso-Kaffeemaschine in der Küche"><figcaption class="g-cap">Kaffeemaschine</figcaption></figure>
+
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Essecke"><img src="photos/esszimmer-1.jpg" alt="Essecke mit bunten Stühlen"><figcaption class="g-cap">Essecke</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Essplatz"><img src="photos/esszimmer-2.jpg" alt="Essplatz mit bunten Stühlen"><figcaption class="g-cap">Essecke</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Essbereich"><img src="photos/esszimmer-3.jpg" alt="Essbereich mit Hängeleuchte"><figcaption class="g-cap">Essecke</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Blick in den Essbereich"><img src="photos/esszimmer-4.jpg" alt="Blick in den Essbereich"><figcaption class="g-cap">Essecke</figcaption></figure>
+
+      <figure class="p1" tabindex="0" role="button" aria-label="Foto vergrößern: Eingangsbereich"><img src="photos/flur-1.jpg" alt="Eingangsbereich mit Türschild Mettnau Ferienwohnung"><figcaption class="g-cap">Eingangsbereich</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Flur mit Ablage"><img src="photos/flur-2.jpg" alt="Flur mit Holzablage und Dekoration"><figcaption class="g-cap">Flur</figcaption></figure>
+      <figure class="p3" tabindex="0" role="button" aria-label="Foto vergrößern: Garderobe im Flur"><img src="photos/flur-3.jpg" alt="Flur mit Garderobenhaken"><figcaption class="g-cap">Flur</figcaption></figure>
+
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Bad mit Wanne"><img src="photos/bad-1.jpg" alt="Badezimmer mit Wanne"><figcaption class="g-cap">Bad</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Waschbecken im Bad"><img src="photos/bad-2.jpg" alt="Waschbecken und Spiegel im Bad"><figcaption class="g-cap">Bad</figcaption></figure>
+
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Blick von der Ferienwohnung"><img src="photos/blick-1.jpg" alt="Blick von der Ferienwohnung über die Nachbarschaft"><figcaption class="g-cap">Ausblick</figcaption></figure>
+      <figure class="p2" tabindex="0" role="button" aria-label="Foto vergrößern: Weiter Ausblick"><img src="photos/blick-2.jpg" alt="Weiter Ausblick über die Dächer"><figcaption class="g-cap">Ausblick</figcaption></figure>
+
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Gartenzugang"><img src="photos/garten.jpg" alt="Zufahrt und Zugang zum Garten"><figcaption class="g-cap">Garten</figcaption></figure>
+      <figure class="p4" tabindex="0" role="button" aria-label="Foto vergrößern: Parkplatz"><img src="photos/parkplatz.jpg" alt="Reservierter Parkplatz auf dem Grundstück"><figcaption class="g-cap">Parkplatz</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="umgebung" class="umgebung">
+  <div class="wrap">
+    <div class="umgebung-grid">
+      <div>
+        <span class="eyebrow">Umgebung</span>
+        <h2 style="margin-bottom: 20px;">Radolfzell &amp; der Bodensee</h2>
+        <p>Radolfzell ist die drittgrößte Stadt am Bodensee — überschaubar, naturnah und mit dem längsten begehbaren Uferabschnitt am ganzen See. Die historische Altstadt lädt zum Bummeln ein, das Münster „Unserer Lieben Frau" bietet vom höchsten Kirchturm am Bodensee einen weiten Blick über Stadt und See.</p>
+        <p>Direkt vor der Tür liegt die Halbinsel Mettnau mit Naturschutzgebiet, ausgedehnten Riedlandschaften und einer weitläufigen Promenade — ideal zum Spazierengehen und Radfahren. Von hier aus lassen sich Ausflüge zur Insel Reichenau, nach Konstanz oder Wanderungen auf dem Bodanrück gut planen.</p>
+      </div>
+      <div>
+        <p style="margin-top: 0;"><br><br><br>Ideen für Ausflugsziele:</p>
+        <div class="taglist">
+          <a class="tag" href="https://www.radolfzell-tourismus.de/attraktion/halbinsel-mettnau-f4dbe6fa49" target="_blank" rel="noopener">Halbinsel Mettnau</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/attraktion/strandbad-mettnau-578c8bc1b1" target="_blank" rel="noopener">Strandbad Mettnau</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/de/reisefuehrer/die-mettnau" target="_blank" rel="noopener">Mettnaupark</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/de/entdecken-erleben/sehenswertes" target="_blank" rel="noopener">Radolfzeller Altstadt</a>
+          <a class="tag" href="https://de.wikipedia.org/wiki/Radolfzeller_M%C3%BCnster" target="_blank" rel="noopener">Münster Unserer Lieben Frau</a>
+          <a class="tag" href="https://www.radolfzell-tourismus.de/attraktion/stadtgarten-radolfzell-b7ad753d60" target="_blank" rel="noopener">Stadtgarten</a>
+          <a class="tag" href="https://www.seemaxx.de/" target="_blank" rel="noopener">Outlet-Center Seemaxx</a>
+          <a class="tag" href="https://www.reichenau-tourismus.de/de/insel-reichenau" target="_blank" rel="noopener">Insel Reichenau</a>
+          <a class="tag" href="https://www.konstanz-info.com" target="_blank" rel="noopener">Konstanz</a>
+          <a class="tag" href="https://de.wikipedia.org/wiki/Bodanr%C3%BCck" target="_blank" rel="noopener">Bodanrück-Wanderwege</a>
+          <a class="tag" href="https://www.bodensee.eu/de/was-erleben/aktiv/radfahren/toptouren" target="_blank" rel="noopener">Bodensee-Radweg</a>
+        </div>
+      </div>
+    </div>
+    <div class="bcp-row">
+      <div class="bcp-hint">
+        <img src="photos/bodensee-card-west.png" alt="Bodensee Card West Logo">
+        <p>Ihr Freifahrtschein und Karte für viele weitere Rabattierungen<br><a href="https://www.bodenseewest.eu/de/planen-buchen/bodenseecardwest" target="_blank" rel="noopener">bodenseewest.eu/de/planen-buchen/bodenseecardwest</a></p>
+      </div>
+      <div class="bcp-hint">
+        <img src="photos/bodensee-card-plus.png" alt="Bodensee Card Plus Logo">
+        <p>Ihre All-inclusive-Erlebniskarte, mit der Sie sich einmalig freien Eintritt bei über 160 der besten Attraktionen in der Vierländerregion sichern – Kursschifffahrt auf dem Bodensee und Rhein inklusive!<br><a href="https://www.bodensee.eu/de/bcp" target="_blank" rel="noopener">bodensee.eu/de/bcp</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="verfuegbarkeit" class="verfuegbarkeit">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Verfügbarkeit</span>
+      <h2>Freie Termine im Überblick</h2>
+    </div>
+    <p class="cal-hint">
+      Der Kalender gibt eine Übersicht der aktuell freien und belegten Zeiträume.
+      Wir freuen uns auf Ihre Buchungsanfrage per E-Mail an:
+      <a href="mailto:petrianna703@gmail.com">petrianna703@gmail.com</a>.
+    </p>
+    <div class="cal-frame-wrap">
+      <iframe id="calendarFrame" src="https://petrifewo.github.io/fewo-verfuegbarkeit/" title="Verfügbarkeitskalender Ferienwohnung Mettnau" loading="lazy" scrolling="no"></iframe>
+    </div>
+    <p class="cal-fallback">Wird der Kalender nicht angezeigt? <a href="https://petrifewo.github.io/fewo-verfuegbarkeit/" style="color: var(--lake-deep); text-decoration: underline;">Direkt öffnen</a></p>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="eyebrow" style="color: var(--lake-pale);">Kontakt &amp; Impressum</span>
+        <h2>Fragen zur Buchung?</h2>
+        <p>Schreiben Sie uns einfach eine E-Mail — wir melden uns zeitnah mit allen weiteren Informationen und der Verfügbarkeit für Ihren Wunschzeitraum.</p>
+        <a class="contact-email" href="mailto:petrianna703@gmail.com">petrianna703@gmail.com</a>
+      </div>
+      <dl class="footer-facts">
+        <dt>Lage</dt>
+        <dd>Hausherrenstraße 20, 78315 Radolfzell am Bodensee (Halbinsel Mettnau)</dd>
+        <dt>Kapazität</dt>
+        <dd>Bis zu 4 Gäste</dd>
+        <dt>Preis</dt>
+        <dd>auf Anfrage</dd>
+        <dt>Haustiere</dt>
+        <dd>auf Anfrage</dd>
+        <dt>Check-in / Check-out</dt>
+        <dd>Ab 15:00 Uhr / bis 11:00 Uhr</dd>
+      </dl>
+    </div>
+       <div class="footer-bottom">
+          <span>Impressum:</span>   
+           
+       <div style="width: 100%; display: flex; justify-content: space-between; gap: 8px;">
+          <span>© <span id="year"></span> Mettnau Ferienwohnung, Radolfzell am Bodensee</span>
+          <span>Registrierungsnummer: FWO-136-2025</span>
+       </div>   
+
+       <div style="width: 100%; display: flex; justify-content: space-between; gap: 8px;">
+          <span>Verantwortlich für den Inhalt dieser Website: Firma Jan Philipp Petri, Hausherrenstraße 20, 78315 Radolfzell, philipp.petri@icloud.com,          015141226223</span>
+           <span>Haftungshinweis: Trotz sorgfältiger inhaltlicher Kontrolle wird keine Haftung übernommen für die Inhalte externern Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</span>  
+       </div>
+       
+       <span>Datenschutzerklärung:</span> 
+       <div style="width: 100%; display: flex; justify-content: space-between; gap: 8px;">
+        
+       <span>
+
+Geltungsbereich: Diese Datenschutzerklärung soll die Nutzer dieser Website gemäß Bundesdatenschutzgesetz und Telemediengesetz über die Art, den Umfang und den Zweck der Erhebung und Verwendung personenbezogener Daten durch den Websitebetreiber Jan Philipp Petri, Ferienwohnung Mettnau, Hausherrenstraße 20, 78315 Radolfzell informieren.
+Der Websitebetreiber nimmt Ihren Datenschutz sehr ernst und behandelt Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Vorschriften.
+Bedenken Sie, dass die Datenübertragung im Internet grundsätzlich mit Sicherheitslücken bedacht sein kann. Ein vollumfänglicher Schutz vor dem Zugriff durch Fremde ist nicht realisierbar.
+Zugriffsdaten: Der Seitenprovider erhebt Daten über Zugriffe auf die Seite und speichert diese als „Server-Logfiles“ ab. Folgende Daten werden so protokolliert: Besuchte Website, Uhrzeit zum Zeitpunkt des Zugriffes, Menge der gesendeten Daten in Byte, Quelle/Verweis, von welchem Sie auf die Seite gelangten, Verwendeter Browser, Verwendetes Betriebssystem, Verwendete IP-Adresse. 
+Die erhobenen Daten dienen lediglich statistischen Auswertungen und zur Verbesserung der Website. Der Websitebetreiber behält sich allerdings vor, die Server-Logfiles nachträglich zu überprüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.
+Cookies: Diese Website verwendet keine Cookies. 
+Newsletterabonnement: Der Websitebetreiber bietet kein Newsletterangebot an.
+
+Umgang mit personenbezogenen Daten: Der Websitebetreiber erhebt, nutzt und gibt keine Ihrer personenbezogenen Daten weiter.
+Als personenbezogene Daten gelten sämtliche Informationen, welche dazu dienen, Ihre Person zu bestimmen und welche zu Ihnen zurückverfolgt werden können – also beispielsweise Ihr Name, Ihre E-Mail-Adresse und Telefonnummer.
+Umgang mit Kontaktdaten: Nehmen Sie mit dem Websitebetreiber durch die angebotenen Kontaktmöglichkeiten Verbindung auf, werden Ihre Angaben gespeichert, damit auf diese zur Bearbeitung und Beantwortung Ihrer Anfrage zurückgegriffen werden kann. Ohne Ihre Einwilligung werden diese Daten nicht an Dritte weitergegeben. Daten und Anfragen, die Sie per Email an den Websitebetreiber übermitteln, werden nur zur Kontaktaufnahme mit Ihnen verwendet. Der Websitebetreiber verwendet keine Formulare zur Online-Kontaktierung.
+Rechte des Nutzers (Auskunft, Berichtigung und Löschung): Sie als Nutzer erhalten auf Antrag Ihrerseits kostenlose Auskunft darüber, welche personenbezogenen Daten über Sie gespeichert wurden. Sofern Ihr Wunsch nicht mit einer gesetzlichen Pflicht zur Aufbewahrung von Daten (z. B. Vorratsdatenspeicherung) kollidiert, haben Sie ein Anrecht auf Berichtigung falscher Daten und auf die Sperrung oder Löschung Ihrer personenbezogenen Daten.
+
+           </span> 
+       </div>
+      
+       </div>  
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">✕</button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Vorheriges Bild">‹</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox-next" id="lightboxNext" aria-label="Nächstes Bild">›</button>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function () {
+    var figures = Array.prototype.slice.call(document.querySelectorAll('#gallery figure'));
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightboxImg');
+    var lightboxCaption = document.getElementById('lightboxCaption');
+    var currentIndex = 0;
+
+    function openAt(index) {
+      currentIndex = (index + figures.length) % figures.length;
+      var fig = figures[currentIndex];
+      var img = fig.querySelector('img');
+      var cap = fig.querySelector('figcaption');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = cap ? cap.textContent : '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function next() { openAt(currentIndex + 1); }
+    function prev() { openAt(currentIndex - 1); }
+
+    figures.forEach(function (fig, i) {
+      fig.addEventListener('click', function () { openAt(i); });
+      fig.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openAt(i);
+        }
+      });
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', close);
+    document.getElementById('lightboxNext').addEventListener('click', next);
+    document.getElementById('lightboxPrev').addEventListener('click', prev);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+  })();
+
+  (function () {
+    var lastSetHeight = 0;
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'fewo-calendar-height' && typeof e.data.height === 'number') {
+        var target = e.data.height + 24;
+        if (Math.abs(target - lastSetHeight) < 4) return;
+        lastSetHeight = target;
+        var frame = document.getElementById('calendarFrame');
+        if (frame) frame.style.height = target + 'px';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
